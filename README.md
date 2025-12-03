@@ -4,78 +4,97 @@ Disciplina: Introdução ao Aprendizado de Máquina
 Instituto Federal de São Paulo – Câmpus Campinas  
 Docente: Everton Meyer da Silva  
 
-## Integrante
-- **Juliana Murakami**
+## 1. Integrante
+- Juliana Murakami
 
 ---
 
-# 1. Descrição do Tema
-Este projeto apresenta a modelagem e avaliação de algoritmos de Machine Learning aplicados ao dataset **Marketing Campaign**, que contém informações de clientes e dados históricos de campanhas de marketing.
+# 2. Descrição do Tema
+Este projeto apresenta a modelagem e avaliação de algoritmos de Machine Learning aplicados ao dataset Marketing Campaign, que reúne informações de clientes e registros de campanhas de marketing anteriores.
 
-O objetivo preditivo deste trabalho é classificar a variável **Response**, que indica se um cliente aceitou (1) ou não aceitou (0) uma oferta de campanha.  
-A tarefa é relevante porque permite que empresas direcionem esforços de marketing para consumidores com maior probabilidade de conversão, otimizando recursos e aumentando o impacto das campanhas.
-
----
-
-# 2. Base de Dados Utilizada
-A base de dados foi obtida oficialmente no Kaggle, no link:
-
-🔗 **https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign?resource=download**
-
-Cada linha representa um cliente e contém atributos como:
-- Perfil demográfico (idade, escolaridade, estado civil)
-- Renda anual
-- Gastos em diferentes categorias de produtos
-- Recência da última compra
-- Histórico de aceitação de campanhas anteriores
-
-A variável alvo utilizada na modelagem foi **Response**.
+O objetivo preditivo consiste em classificar a variável Response, indicando se um cliente aceita (1) ou não aceita (0) uma oferta de campanha. Essa tarefa é relevante para estratégias de marketing porque permite identificar clientes com maior probabilidade de conversão, reduzindo custos e aumentando a eficácia das ações promocionais.
 
 ---
 
-# 3. Notebook do Projeto
-O notebook completo contém:
+# 3. Base de Dados Utilizada
+A base de dados foi obtida oficialmente no Kaggle, disponível em:
 
-- Carregamento da base diretamente com `kagglehub`
-- Pré-processamento (remoção de nulos, criação de atributos, encoding e normalização)
-- Construção do pipeline com `ColumnTransformer`
-- Treinamento dos modelos:
-  - Regressão Logística  
-  - Random Forest  
+https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign?resource=download
+
+Cada linha representa um cliente, contendo atributos como idade, escolaridade, estado civil, renda, gastos em categorias específicas de produtos, recência da última compra, histórico de campanhas anteriores e variáveis comportamentais.
+
+A variável alvo utilizada no processo de modelagem foi Response.
+
+---
+
+# 4. Notebook do Projeto
+O notebook principal contém:
+
+- Carregamento da base utilizando a biblioteca kagglehub.  
+- Pré-processamento: remoção de valores nulos, criação de variáveis derivadas, normalização e codificação.  
+- Construção de um Pipeline com ColumnTransformer para organizar o fluxo de transformações.  
+- Treinamento de três modelos de classificação:
+  - Regressão Logística
+  - Random Forest
   - K-Nearest Neighbors (KNN)
-- Avaliação utilizando:
-  - accuracy  
-  - precision  
-  - recall  
-  - f1-score  
-  - ROC-AUC  
-- Execução de validação cruzada **Stratified K-Fold (5 folds)**
+- Avaliação dos modelos com accuracy, precision, recall, f1-score e ROC-AUC.
+- Execução de validação cruzada do tipo Stratified K-Fold com 5 divisões.  
+- Comparação dos resultados para escolha do modelo mais adequado.
 
- Arquivo: `parte2_marketing_campaign-final.ipynb`
+Arquivo principal: `parte2_marketing_campaign-final.ipynb`
 
 ---
 
-# 4. Principais Resultados
+# 5. Como Executar o Projeto (Google Colab)
 
-### ✔ Regressão Logística
-- Melhor equilíbrio entre recall da classe positiva e ROC-AUC  
-- Maior capacidade de identificação dos clientes que aceitam a campanha  
+A forma mais prática de executar o notebook é utilizando o Google Colab, sem necessidade de instalação local.
 
-### ✔ Random Forest
-- Maior acurácia global  
-- Recall menor para a classe positiva  
+### Passo a passo para executar:
 
-### ✔ KNN
-- Resultado intermediário  
-- Maior variação entre folds na validação cruzada  
+1. Acesse o Google Colab:  
+   https://colab.research.google.com/
 
-**Modelo escolhido:** *Regressão Logística*, por apresentar o melhor equilíbrio entre desempenho e estabilidade.
+2. Clique em "Arquivo" > "Fazer upload de notebook".
+
+3. Envie o arquivo:  
+   `parte2_marketing_campaign-final.ipynb`
+
+4. Aguarde o notebook abrir no Colab.
+
+5. Clique em "Ambiente de execução" > "Executar tudo".
+
+6. Caso solicitado, autorize as permissões do ambiente.
+
+Observações importantes:
+- Não é necessário fazer download do CSV manualmente, pois o notebook carrega o dataset diretamente do Kaggle via kagglehub.
+- Basta executar as células na ordem em que aparecem para reproduzir todo o pipeline de Machine Learning.
 
 ---
 
-# 5. Como Executar o Projeto
+# 6. Principais Resultados
 
-### **Requisitos**
-- Python 3.10+
-- Jupyter Notebook
-- Bibliotecas:
+Resumo dos modelos avaliados:
+
+- Regressão Logística: apresentou o melhor equilíbrio geral entre recall da classe positiva e ROC-AUC, sendo o modelo recomendado para o problema.
+- Random Forest: obteve a maior acurácia global, porém com recall reduzido para a classe positiva.
+- KNN: desempenho intermediário e maior variação entre os folds na validação cruzada.
+
+O modelo final selecionado foi a Regressão Logística, por apresentar estabilidade, separação superior entre as classes e melhor alinhamento com o objetivo de marketing.
+
+---
+
+# 7. Slides da Apresentação
+Os slides utilizados na apresentação fazem parte deste repositório e descrevem de forma visual as etapas do pipeline, os modelos e os resultados obtidos.
+
+Arquivo disponível: `MachineLearning_JuMurak.pptx`
+
+---
+
+# 8. Considerações Finais
+O projeto demonstra a aplicação de um pipeline completo de Machine Learning, contemplando pré-processamento, engenharia de atributos, modelagem, avaliação com múltiplas métricas e validação cruzada.  
+A análise conduz à escolha de um modelo adequado para priorização de clientes em campanhas de marketing, contribuindo para decisões mais eficientes e baseadas em dados.
+
+---
+
+# 9. Licença
+Este repositório tem finalidade acadêmica e segue as diretrizes do trabalho final da disciplina de Introdução ao Aprendizado de Máquina, do IFSP – Câmpus Campinas.
