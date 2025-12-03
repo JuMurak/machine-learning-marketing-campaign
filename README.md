@@ -86,7 +86,7 @@ O modelo final selecionado foi a Regressão Logística, por apresentar estabilid
 # 7. Slides da Apresentação
 Os slides utilizados na apresentação fazem parte deste repositório e descrevem de forma visual as etapas do pipeline, os modelos e os resultados obtidos.
 
-Arquivo disponível: `MachineLearning_JuMurak.pptx`
+Arquivo disponível: `SlidesApresentacao.pdf`
 
 ---
 
